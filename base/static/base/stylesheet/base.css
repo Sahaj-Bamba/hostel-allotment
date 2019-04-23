@@ -1,0 +1,50 @@
+
+	.navbar-brand {
+		padding: 20px 15px;
+    	font-size: 30px;
+	}
+
+	#main-nav-bar>ul>li>a{
+		padding: 20px 10px;
+		font-size:20px
+	}
+
+	.carousel-inner img {
+		/*width: 100%;*/
+		margin: auto;
+		min-height:600px;
+		max-height: 600px;
+		max-width: 700px;
+	}
+
+	@media (max-width: 600px) {
+		.carousel-caption {
+			display: none;
+		}
+	}
+
+.tag{
+	height: 100%; width: 3%;display: inline-block;
+}
+
+.social{
+	text-align: right; height: 100%; width: 100%; position: absolute; top: -25%; display: block; right: 10%;
+}
+
+.footer{
+	position: fixed; bottom: 1%; left: 5%; height: 5%; display: block; border: solid 0px blue; width: 100%; background-color: #f3f3f3; z-index: 5;
+}
+
+
+.image{
+	display: inline-block; height: 100%; width: 100%; background-size: 100% 100%;
+}
+
+.image2{
+	 height: 100%; width: 100%; display: none;	background-size: 100% 100%;
+}
+.main{
+	position: fixed; height: 82%; width: 90%; left: 5%; top: 11%; display: block; border: solid 0px black; z-index: 3;
+	overflow: auto;
+	min-height: 540px;
+}

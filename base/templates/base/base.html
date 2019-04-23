@@ -1,0 +1,160 @@
+{% load static  %}
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>
+            {% block title %}
+            {% endblock %}
+        </title>
+
+        <!--    fixing viewport scale            -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!--    Including Jquery and Bootstrap            -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!--    Setting icon -->
+	    <link rel="icon" type="image/x-icon" href="{% static 'main_icon.ico' %}">
+
+        <!--        Base stylesheet and java script     -->
+        <link rel="stylesheet" type="text/css" href="{% static 'base/stylesheet/base.css' %}">
+	    <script type="text/javascript" src="{% static 'base/javascript/base.js' %}"></script>
+
+        <!--        Specific page stylesheet and java script    -->
+        {% block statics %}
+
+        {% endblock %}
+    </head>
+
+
+	<body>
+
+        <!-- Header -->
+        <!--        Navbar      -->
+		<nav class="navbar navbar-fixed-top navbar-inverse">
+		    <div class="container-fluid">
+			    <div class="navbar-header">
+			        <!--  Button for collapse of main nav bar  -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="active"><a class="navbar-brand active" href="{% url 'base:home' %}">Hostel Allotment Portal</a>
+                    </div>
+			    </div>
+                <div class="collapse navbar-collapse" id="main-nav-bar">
+                    <ul class="nav navbar-nav">
+                        {% if user.is_authenticated %}
+                            <li ><a href="{% url 'accounts:profile' %}">Profile</a></li>
+                            <script>
+                                console.log("hell");
+                                console.log('{{ request.session.gamer_authority }}');
+                                console.log("hi");
+
+                            </script>
+                            {% if request.session.gamer_authority < 5 %}
+                                <li ><a href="{% url 'accounts:team' %}">Team</a></li>
+                                <li ><a href="{% url 'accounts:requests' %}">Requests</a></li>
+                                <li ><a href="{% url 'Project_Allotment_Portal:notification' %}">Notification</a></li>
+                                <li ><a href="{% url 'accounts:proff' %}">Professor</a></li>
+                            {% endif %}
+                            {% if request.session.gamer_authority >= 5 %}
+                                <li ><a href="{% url 'accounts:validate' %}">Validate</a></li>
+                            {% endif %}
+{#                            {% if request.session.gamer_authority == 7 %}#}
+{#                                <li ><a href="{% url 'accounts:authority_change' %}">Authority</a></li>#}
+{#                            {% endif %}#}
+                        {% endif %}
+                        <li ><a href="{% url 'Project_Allotment_Portal:contact' %}">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" >
+                        {% if user.is_authenticated %}
+
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> {{ user.username }} <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+                                    <li>
+                                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit"> Logout </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        {% else %}
+
+                            <li><a href="{% url 'accounts:signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+		</nav>
+
+        <div class="main" style="max-height: 100%; height: 100%; min-height: 570px; width: 100%;left: 0px;top: 0px;">
+
+            <div class="jumbotron">
+                <div class="container text-center">
+                    <h1>
+                        {% block title2 %}
+
+                        {% endblock %}
+                    </h1>
+                    <strong>
+                        <h2 class="mark">
+                            {% block quote %}
+
+                            {% endblock %}
+                        </h2>
+                    </strong>
+                </div>
+            </div>
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+        <!--        Footer      -->
+
+        <div class="footer" >
+            <div class="txt">
+                Copyright © 2019<br> Design by Sahaj Bamba
+            </div>
+			<div class="social" >
+				<div class="tag" >
+                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/fb.jpg'%});" >
+                    </div>
+                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/fb2.jpg'%});">
+                    </div>
+                </div>
+                <div class="tag" >
+                    <div class="image" style="background-image: url({% static 'Project_Allotment_Portal/pictures/logos/twitter.jpg'%}); " >
+                    </div>
+                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/twitter2.jpg'%}); ">
+                    </div>
+                </div>
+                <div class="tag" >
+                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/instagram.png'%}); " >
+                    </div>
+                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/instagram2.png'%}); ">
+                    </div>
+                </div>
+                <div class="tag" >
+                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/youtube.png'%}); " >
+                    </div>
+                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/youtube2.png'%}); ">
+                    </div>
+				</div>
+			</div>
+	    </div>
+
+	</body>
+</html>
+

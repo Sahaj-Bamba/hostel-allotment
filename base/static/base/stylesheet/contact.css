@@ -1,0 +1,356 @@
+
+@media screen and (min-height: 700px){
+
+#spinload{
+	height: 800px;
+	width: 100%;
+	z-index: 1000;
+	background-color: #eee;
+	display: block;
+}
+
+.gif{
+	height: auto;
+	width: 150px;
+	text-align: center;
+	vertical-align: center;
+	background-image: url('spin.gif');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center;
+}
+}
+@media screen and (max-height: 500px){
+
+#spinload{
+	height: 700px;
+	width: 100%;
+	z-index: 1000;
+	background-color: #eee;
+	display: block;
+}
+
+.gif{
+	height: 150px;
+	width: 150px;
+	text-align: center;
+	vertical-align: center;
+	background-image: url('spin.gif');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center;
+}
+}
+
+
+@media screen and (min-width: 670px){
+
+
+#spinload{
+	height: 800px;
+	width: 100%;
+	z-index: 1000;
+	background-color: #eee;
+	display: block;
+}
+
+.gif{
+	height: 150px;
+	width: 100px;
+	text-align: center;
+	vertical-align: center;
+	background-image: url('spin.gif');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center;
+}
+
+.tag{
+	height: 100%; width: 3%;display: inline-block;
+}
+
+.social{
+	text-align: right; height: 100%; width: 100%; position: absolute; top: -25%; display: block; right: 10%;
+}
+
+.footer{
+	position: fixed; bottom: 1%; left: 5%; height: 5%; display: block; border: solid 0px blue; width: 100%; background-color: #f3f3f3; z-index: 5;
+}
+
+.main{
+	position: fixed; height: 82%; width: 90%; left: 5%; top: 11%; display: block; border: solid 0px black; z-index: 3;
+	overflow: auto;
+}
+
+.menu_item{
+	position: relative; text-align: center; padding: 1%;  min-width: 10%; height: 100%; display: inline-block; border: solid 0px blue;padding-top: 1.5%;
+}
+
+.menu{
+	position: absolute; top: 0%; right: 5%; height: 100%; width : 70%; background-color: #f3f3f3; text-align: right; border: solid 0px red;
+}
+
+.Imagex{
+	text-align: left; position: absolute; height: 100%; width: 20%; left: 5%; top: 0%; background-size: 100% 100%;
+}
+
+
+
+.image{
+	display: inline-block; height: 100%; width: 100%; background-size: 100% 100%;
+}
+
+.image2{
+	 height: 100%; width: 100%; display: none;	background-size: 100% 100%;
+}
+
+.header{
+	position: fixed; top: 2%; height: 8%; display: block; border: solid 0px blue; width: 99%; background-color: #f3f3f3; z-index: 5;
+}
+
+
+}
+
+
+
+
+
+
+@media (max-width: 671px) {
+
+#spinload{
+	height: 500px;
+	width: 100%;
+	z-index: 1000;
+	background-color: #eee;
+	display: block;
+}
+
+.gif{
+	height: 100px;
+	width: auto;
+	text-align: center;
+	vertical-align: center;
+	background-image: url('spin.gif');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
+}
+
+.tag{
+	height: 75%; width: 5%; display: inline-block;
+}
+
+.social{
+
+	text-align: right; height: 100%; top:0%; width: 100%; position: absolute;  display: block; right: 10%;
+}
+
+.txt{
+	height: 100%;
+	width: 80%;
+	position: absolute;
+	left: 0%;
+	font-size: 1em;
+}
+
+.txte{
+	height: 100%;
+	width: 80%;
+	position: absolute;
+	left: 0%;
+	font-size: 1em;
+}
+
+.footer{
+	position: fixed; bottom: 0%; left: 0%; height: 5%; display: block; border: solid 0px blue; width: 100%; background-color: #f3f3f3; z-index: 5;
+	font-size: 0.75em;
+}
+
+.main{
+	position: fixed; height: 90%; width: 100%; left: 0%; top: 5%;
+	display: block; border: solid 0px black; z-index: 3;
+	overflow: auto;
+}
+
+.menu_item{
+	position: relative; text-align: center; padding: 0%;  min-width: auto; height: 25px; display: block; border: solid 0px blue; border-bottom: solid 0.5px black; padding-top: 1.5%;
+	background-color: rgba(220,220,220,0.2);
+}
+
+.menu{
+	position: absolute; top: 0%; right: 2%; height: 175px; width : 70%; background-color: rgba(240,240,240,0.2); text-align: right; border: solid 0px red;
+	display: none;
+}
+
+.Imagex{
+	text-align: left; position: absolute; height: 100%; width: 40%; left: 2%; top: -20%; background-size: 100% 100%;
+}
+
+.menu_button{
+	z-index: 10;
+	position: absolute;
+	right: 5%;
+	background-color: black;
+	color: black;
+	width: 20px;
+	height: 20px;
+	background-image: url(menu1.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+
+}
+
+.Image{
+	text-align: left; position: absolute; height: 100%; width: 20%; left: 2%; top: 0%; background-size: 100% 100%;
+}
+
+.image{
+	display: inline-block; height: 100%; width: 100%; background-size: 100% 100%;
+}
+
+.image2{
+	 height: 100%; width: 100%; display: none;	background-size: 100% 100%;
+}
+
+.header{
+	position: fixed; top: 2%; height: 30px ; display: block; border: solid 0px blue; width: 99%; background-color: #f3f3f3; z-index: 5;
+}
+
+body{
+	height: 100%;
+	width: 100%;
+}
+
+}
+
+body {
+	background-color: #888;
+}
+
+
+  .Image{
+  display: block;
+  border: solid 0px red;
+  position: relative;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (min-width: 502px){
+
+#map {
+	height: 50%;
+	width: 100%;
+}
+
+.white_back{
+	position: absolute; height: 50%; width: 100%; top: 50%;background-color: #fff;
+}
+
+#info{
+height: 50%; width:98%; display: block; border: solid 0px red; position: relative; top: 0%; background-color: white; left: 2%
+}
+
+.special{
+	font-size: 3em; font-weight: bold; height: 30%; width: 40%; position: absolute; border: solid 0px blue; top: 5%;
+}
+
+.txtf{
+	display: block; border: solid 0px black; height:60%; position: absolute; top: 40%; width: 40%;
+}
+
+form{
+	width: 50%; height: 100%;  display: block; position: absolute; left: 48%; top: 5%;
+}
+
+.spil{
+	display: none;
+}
+
+#dn{
+	display: none;
+}
+
+
+.socialc{
+	text-align: left; height: 100%; top:0%; width: 100%; position: absolute;  display: block;
+}
+
+.footerc{
+	position: relative; left: 0px; height: 30px; display: block; border: solid 0px blue; width: 100%; background-color: #fff; z-index: 5;
+	font-size: 0.75em;
+
+}
+
+.tagc{
+	height: 30px; width: 30px; display: inline-block;
+	background-size: 30px 30px;
+	margin-right: 5px;
+}
+
+}
+
+@media screen and (max-width: 502px){
+
+#map {
+	height: 50%;
+	width: 100%;
+}
+
+	.main{
+		display: block;
+	}
+	form{
+	width: 100%; height: 100%;  display: block; position: relative; left: 0%; top: 5%;
+}
+.special{
+	font-size: 3em; font-weight: bold; height: 30%; width: 100%; position: relative; border: solid 0px blue; top: 5%;
+}
+
+.txt{
+	display: block; border: solid 0px black; height:100%; position: relative;  width: 100%;
+}
+
+.spil{
+	display: block;
+}
+#dn{
+	z-index: 50;
+	display: block;
+	position: fixed;
+	bottom: 50px;
+	right: 5px;
+	height: 30px;
+	width: 25px;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+
+
+
+.socialc{
+	text-align: left; height: 100%; top:0%; width: 100%; position: absolute;  display: block; right: 10%;
+}
+
+.footerc{
+	position: relative; left: 20%; height: 30px; display: block; border: solid 0px blue; width: 100%; background-color: #f3f3f3; z-index: 5;
+	font-size: 0.75em;
+
+}
+
+.tagc{
+	height: 30px; width: 30px; display: inline-block;
+	background-size: 30px 30px;
+	margin-right: 10px;
+}
+
+
+}

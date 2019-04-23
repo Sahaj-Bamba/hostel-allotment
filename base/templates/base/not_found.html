@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block statics %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Project_Allotment_Portal/stylesheet/not_found.css' %} " >
+{% endblock %}
+
+{% block title %}
+    Page Not Found
+{% endblock %}
+
+{% block title2 %}
+    Page Not Found
+{% endblock %}
+
+{% block quote %}
+    You seem to be lost . Try the following links :-
+{% endblock %}
+
+{% block content %}
+
+    <ul>
+        <li>
+            <h3 style="align-content: center;">
+                <a href="{% url 'Project_Allotment_Portal:home' %}"> Home Page </a>
+            </h3>
+        </li>
+        <li>
+            <h3 style="align-content: center;">
+                <a href="/admin/"> admin </a>
+            </h3>
+        </li>
+    </ul>
+
+{% endblock %}

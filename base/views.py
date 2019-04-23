@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
-# Create your views here.
+
+def home(request):
+    return render(request, 'base/home.html', {})
+
+
+def not_found(request):
+    return render(request, 'base/not_found.html', {})

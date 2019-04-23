@@ -1,0 +1,10 @@
+.profile_details{
+    margin-left: 30px;
+    padding: 20px;
+}
+
+.profile_details input, .profile_details textarea, .profile_details select {
+    display: block;
+    margin: 10px 10px 30px 10px;
+    padding: 5px;
+}

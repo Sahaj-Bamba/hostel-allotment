@@ -1,0 +1,77 @@
+
+
+.cat > .all_pro{
+	display: none;
+	cursor: default;
+}
+
+.cat{
+	text-align: center;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.cat .bullet{
+	background-size: 100% 100%;
+	display: inline-block;
+	border: solid 0px red;
+	position: relative;
+	left: 10px;
+	height: 30px;
+	width: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: blue;
+}
+.cat .name{
+	display: inline-block;
+	position: relative;
+	bottom: 7px;
+	height: 20px;
+	font-size: 1.5em;
+	font-weight: bolder;
+	left: 40px;
+}
+
+.cat .product{
+	display: block;
+
+	height: 50px;
+	border: solid 0px red;
+	padding: 8px;
+}
+
+.cat > .all_pro{
+	display: none;
+
+}
+
+.product > div {
+	display: inline-block;
+	border: solid 0px black;
+	position: relative;
+	top: 0px;
+}
+
+.product .pic {
+	width: 10%;
+	top:-24.5%;
+	height: 150%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+
+.product .title {
+	width: 20%;
+	height: auto;
+}
+
+.product .description {
+	width: 40%;
+}
+
+.product .rate {
+	width: 20%;
+}
+
