@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block statics %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Project_Allotment_Portal/stylesheet/proff.css' %} " >
+    <script type="text/javascript" src="{% static 'Project_Allotment_Portal/javascript/proff.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    mentor
+{% endblock %}
+
+{% block title2 %}
+    Choose your mentor
+{% endblock %}
+
+{% block quote %}
+        Only the best shall get the best
+{% endblock %}
+
+
+
+{% block content %}
+
+    {% if request.session.gamer_data_verified <= 1 %}
+
+        <h1> Please wait for your profile verification. </h1>
+
+    {% elif request.session.gamer_data_verified == 2 %}
+
+        <h1> Please wait for your team completion. </h1>
+
+    {% elif request.session.gamer_data_verified == 3 %}
+
+        {% if request.session.gamer_authority < 4 %}
+            <h1>    Please consult your team leader for professor priority list selection. </h1>
+        {% else %}
+            <h1> Fill in numbers lowest is most wanted highest is least equal is any random </h1>
+            <form class="my-form" action="{% url 'accounts:proff' %}" method="post">
+                {% csrf_token %}
+                {% for mem in mem4 %}
+                   {{ mem.user_name }} :  <input type="number" name={{ mem.user_name }} required>
+                    <br>
+                {% endfor %}
+                <input type="submit" value="submit">
+            </form>
+        {% endif %}
+
+    {% elif request.session.gamer_data_verified == 4 %}
+
+        {% if request.session.gamer_authority < 4 %}
+            <h1>    Please consult your team leader for professor priority list selection. </h1>
+        {% else %}
+            <h1>    Please wait for the professor selection process to get over. </h1>
+        {% endif %}
+
+    {% else %}
+
+        <h1>    Your Mentor is  </h1>
+
+            {% for mem in mem6 %}
+                <div class="cat row alert alert-success" style="cursor: context-menu">
+                    <span class="name" style="padding: 10px; margin: 0px 10px 0px 10px;"> {{ mem.user_name }}  </span>
+                    <span class="reg_no" style="padding: 10px; margin: 10px 10px 0px 10px; font-size: 1.5em; position: relative; top: -6px; left: 15px; font-weight: bolder;"> {{ mem.user_contact }} </span>
+                </div>
+            {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
+

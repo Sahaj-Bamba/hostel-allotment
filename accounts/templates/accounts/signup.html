@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+#{% load static  %}
+
+{% block title %}
+    Singnup
+{% endblock %}
+
+{% block title2 %}
+    Sign up
+{% endblock %}
+
+{% block content %}
+    <form class="my-form" action="{% url 'accounts:signup' %} " method="post">
+    <link rel="stylesheet" href="{% static 'Project_Allotment_Portal/stylesheet/signup.css' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Signup">
+    </form>
+{% endblock %}

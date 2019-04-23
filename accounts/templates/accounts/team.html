@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block statics %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Project_Allotment_Portal/stylesheet/team.css' %} " >
+    <script type="text/javascript" src="{% static 'Project_Allotment_Portal/javascript/team.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Team
+{% endblock %}
+
+{% block title2 %}
+    Create Your Team
+{% endblock %}
+
+{% block quote %}
+    Your team is as strong as your weakest link so think carefully
+{% endblock %}
+
+
+
+{% block content %}
+
+    {% if request.session.gamer_data_verified <= 1 %}
+
+        <h1> Please wait for your details verification first. </h1>
+
+    {% elif request.session.gamer_data_verified == 2 %}
+
+        {% if request.session.gamer_authority <= 3 %}
+
+            <div class="cat row alert alert-success" style="pointer-events: none;">
+			    <div class="all_pro" style="display: block;">
+
+                    {% for mem in mem4 %}
+
+                        <div class=" col-sm-12 product">
+
+                            <div class="title">
+                                {{ mem.user_name }}
+                            </div>
+                            <div class="description">
+                                {{ mem.user_reg_no }}
+                            </div>
+                            <div class="rate" style="pointer-events: all;">
+                                <form  style="display: inline;" class="my-form" action="{% url 'accounts:team' %} " method="post">
+                                    {% csrf_token %}
+                                    <input name="reg" style="display: none;" type="text" value="{{ mem.user_reg_no }}">
+                                    <input type="submit" value="Request">
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+		    </div>
+
+        {% elif request.session.gamer_authority == 4 %}
+            
+{#            {% if  team_mems %2 == 1 %}#}
+            {% if  team_mems_1 == 0 %}
+                <div class="cat row alert alert-success">
+                    <div class=" bullet" > </div>
+                    <div class=" name"> Member Group 1 </div>
+                    <div class="all_pro" style="display: none;">
+
+                        {% for mem in mem1 %}
+
+                            <div class=" col-sm-12 product">
+
+                                <div class="title">
+                                    {{ mem.user_name }}
+                                </div>
+                                <div class="description">
+                                    {{ mem.user_reg_no }}
+                                </div>
+                                <div class="rate">
+                                    <form  style="display: inline;" class="my-form" action="{% url 'accounts:team' %} " method="post">
+                                        {% csrf_token %}
+                                        <input name="reg" style="display: none;" type="text" value="{{ mem.user_reg_no }}">
+                                        <input type="submit" value="Request">
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+
+{#            {% if ( team_mems //2)%2 == 1 %}#}
+            {% if  team_mems_2  == 0 %}
+                <div class="cat row alert alert-success">
+                    <div class=" bullet" > </div>
+                    <div class=" name"> Member Group 2 </div>
+                    <div class="all_pro" style="display: none;">
+
+                        {% for mem in mem2 %}
+
+                            <div class=" col-sm-12 product">
+
+                                <div class="title">
+                                    {{ mem.user_name }}
+                                </div>
+                                <div class="description">
+                                    {{ mem.user_reg_no }}
+                                </div>
+                                <div class="rate">
+                                    <form  style="display: inline;" class="my-form" action="{% url 'accounts:team' %} " method="post">
+                                        {% csrf_token %}
+                                        <input name="reg" style="display: none;" type="text" value="{{ mem.user_reg_no }}">
+                                        <input type="submit" value="Request">
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            {% endif %}
+
+{#            {% if ( team_mems //4)%2 == 1 %}#}
+            {% if team_mems_3 == 0 %}
+                <div class="cat row alert alert-success">
+                    <div class=" bullet" > </div>
+                    <div class=" name"> Member Group 3 </div>
+                    <div class="all_pro" style="display: none;">
+
+                        {% for mem in mem3 %}
+
+                            <div class=" col-sm-12 product">
+
+                                <div class="title">
+                                    {{ mem.user_name }}
+                                </div>
+                                <div class="description">
+                                    {{ mem.user_reg_no }}
+                                </div>
+                                <div class="rate">
+                                    <form  style="display: inline;" class="my-form" action="{% url 'accounts:team' %} " method="post">
+                                        {% csrf_token %}
+                                        <input name="reg" style="display: none;" type="text" value="{{ mem.user_reg_no }}">
+                                        <input type="submit" value="Request">
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endif %}
+
+    {% else %}
+
+        <h1>    Your team has been completed. </h1>
+
+        {% for mem in mem6 %}
+            <div class="cat row alert alert-success" style="cursor: context-menu;">
+                <span class="name" style="padding: 10px; margin: 0px 10px 0px 10px;"> {{ mem.user_name }} </span>
+                <span class="reg_no" style="padding: 10px; margin: 0px 10px 0px 10px; font-size: 1.5em; position: relative; top: -6px; left: 15px; font-weight: bolder;"> {{ mem.user_reg_no }} </span>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

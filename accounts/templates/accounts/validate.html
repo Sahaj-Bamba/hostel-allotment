@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block statics %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Project_Allotment_Portal/stylesheet/team.css' %} " >
+    <script type="text/javascript" src="{% static 'Project_Allotment_Portal/javascript/team.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Validate
+{% endblock %}
+
+{% block title2 %}
+    Verify the user details
+{% endblock %}
+
+{% block quote %}
+    Only the truth shall prevail
+{% endblock %}
+
+{% block content %}
+
+    {% if request.session.gamer_data_verified <= 1 %}
+
+        <h1> Please wait for your profile verification. </h1>
+
+    {% elif request.session.gamer_data_verified == 2 %}
+
+        <div class="cat row alert alert-success" style="pointer-events: none;">
+            <div class="all_pro" style="display: block;">
+
+                {% for mem_ in mem %}
+
+                    <div class=" col-sm-12 product">
+
+                        <div class="title">
+                            {{ mem_.user_name }}
+                        </div>
+                        <div class="description">
+                            {{ mem_.user_reg_no }}
+                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+
+                            {{ mem_.user_cpi }}
+                        </div>
+                        <div class="rate" style="pointer-events: all">
+                            <form  style="display: inline;" class="my-form" action="{% url 'accounts:validate' %} " method="post">
+                                {% csrf_token %}
+                                <input name="reg" style="display: none;" type="text" value="{{ mem_.user_reg_no }}">
+                                <input type="submit" value="Verified">
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
