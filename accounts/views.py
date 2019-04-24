@@ -1,12 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login, logout
-from django.contrib.auth.models import User
-from . import forms
-from .models import priority
 from .models import User_details
-from .models import user_requests
-from .models import Team_details
 from base.views import update
 from django.core.exceptions import ObjectDoesNotExist
 

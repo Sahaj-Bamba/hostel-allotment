@@ -31,12 +31,13 @@
     </head>
 
 
-	<body>
+	<body style="height: 100vh; width: 100%;">
+    <div id="back_container" style="height: 100%;width: 100%;background-color: #e4e4e4; position: fixed; left: 0px; top: 0px; ">
 
         <!-- Header -->
         <!--        Navbar      -->
 
-        <nav class="navbar navbar-fixed-top navbar-inverse">
+        <nav class="navbar navbar-fixed-top navbar-inverse" >
 		    <div class="container-fluid">
 			    <div class="navbar-header">
 			        <!--  Button for collapse of main nav bar  -->
@@ -68,6 +69,7 @@
 {#                        <li ><a href="{% url 'Project_Allotment_Portal:contact' %}">Contact</a></li>#}
                     </ul>
                     <ul class="nav navbar-nav navbar-right" >
+
                         {% if user.is_authenticated %}
 
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> {{ user.username }} <span class="caret"></span></a>
@@ -87,6 +89,7 @@
                             <li><a href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
                         {% endif %}
+
                     </ul>
                 </div>
             </div>
@@ -117,38 +120,38 @@
         </div>
         <!--        Footer      -->
 
-        <div class="footer" >
+        <div class="footer"  style="position: absolute; left: 0px; bottom: 0px; width: 100%; height: 5%;">
             <div class="txt">
-                Copyright © 2019<br> Design by Sahaj Bamba
+                Copyright © 2019  Design by Sahaj Bamba
             </div>
-			<div class="social" >
+			<div class="social" style="left: 0%; top: 0px; width: 100%;">
 				<div class="tag" >
-                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/fb.jpg'%});" >
+                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'base/pictures/logos/fb.jpg'%});" >
                     </div>
-                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/fb2.jpg'%});">
-                    </div>
-                </div>
-                <div class="tag" >
-                    <div class="image" style="background-image: url({% static 'Project_Allotment_Portal/pictures/logos/twitter.jpg'%}); " >
-                    </div>
-                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/twitter2.jpg'%}); ">
+                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'base/pictures/logos/fb2.jpg'%});">
                     </div>
                 </div>
                 <div class="tag" >
-                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/instagram.png'%}); " >
+                    <div class="image" style="background-image: url({% static 'base/pictures/logos/twitter.jpg'%}); " >
                     </div>
-                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/instagram2.png'%}); ">
+                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'base/pictures/logos/twitter2.jpg'%}); ">
                     </div>
                 </div>
                 <div class="tag" >
-                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/youtube.png'%}); " >
+                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'base/pictures/logos/instagram.png'%}); " >
                     </div>
-                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'Project_Allotment_Portal/pictures/logos/youtube2.png'%}); ">
+                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'base/pictures/logos/instagram2.png'%}); ">
+                    </div>
+                </div>
+                <div class="tag" >
+                    <div class="image" style=" border: solid 0px red; background-image: url({% static 'base/pictures/logos/youtube.png'%}); " >
+                    </div>
+                    <div class="image2" style=" border: solid 0px red; background-image: url({% static 'base/pictures/logos/youtube2.png'%}); ">
                     </div>
 				</div>
 			</div>
 	    </div>
-
+    </div>
 	</body>
 </html>
 
