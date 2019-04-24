@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
@@ -17,6 +18,7 @@ from django.core.exceptions import ObjectDoesNotExist
 #     return render(request,'accounts/signup.html',{'form':form})
 
 
+@login_required(login_url="/login/")
 def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -39,7 +41,8 @@ def user_logout(request):
     if request.method == 'POST':
         logout(request)
         update(request)
-        return redirect('base:home')
+
+    return redirect('base:home')
 
 
 def user_profile(request):
@@ -53,6 +56,25 @@ def user_profile(request):
     details['Regestration Number'] = x.user_reg_no
     details['Year'] = x.year
     return render(request, 'accounts/profile.html', {'details': details})
+
+
+def team(request):
+    update(request)
+    return render(request, 'accounts/team.html', {})
+
+
+def create_team(request):
+    if request.method == 'POST':
+                                    #   create the users team
+        pass
+    return redirect('accounts:team')
+
+
+def join_team(request):
+    if request.method == 'POST':
+                                       #   join the users team
+        pass
+    return redirect('accounts:team')
 
 
 # def team(request):

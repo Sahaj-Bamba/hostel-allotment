@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block statics %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Project_Allotment_Portal/stylesheet/team.css' %} " >
-    <script type="text/javascript" src="{% static 'Project_Allotment_Portal/javascript/team.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/stylesheet/team.css' %} " >
+    <script type="text/javascript" src="{% static 'accounts/javascript/team.js' %}"></script>
 {% endblock %}
 
 {% block title %}
@@ -15,45 +15,27 @@
 {% endblock %}
 
 {% block quote %}
-    Your team is as strong as your weakest link so think carefully
 {% endblock %}
 
 
 
 {% block content %}
 
-    {% if request.session.gamer_data_verified <= 1 %}
+    {% if request.session.gamer_authority != 0 %}
 
-        <h1> Please wait for your details verification first. </h1>
+        <!--        Display Team details     -->
+        <h1>  </h1>
 
-    {% elif request.session.gamer_data_verified == 2 %}
+    {% elif request.session.gamer_authority == 0 %}
 
-        {% if request.session.gamer_authority <= 3 %}
+        <!--            Create team or join team        -->
+        <div class="create_team" >
 
-            <div class="cat row alert alert-success" style="pointer-events: none;">
-			    <div class="all_pro" style="display: block;">
+            <form class="create_team_form" method="post" action="{% url 'accounts:create_team' %}">
 
-                    {% for mem in mem4 %}
+            </form>
 
-                        <div class=" col-sm-12 product">
-
-                            <div class="title">
-                                {{ mem.user_name }}
-                            </div>
-                            <div class="description">
-                                {{ mem.user_reg_no }}
-                            </div>
-                            <div class="rate" style="pointer-events: all;">
-                                <form  style="display: inline;" class="my-form" action="{% url 'accounts:team' %} " method="post">
-                                    {% csrf_token %}
-                                    <input name="reg" style="display: none;" type="text" value="{{ mem.user_reg_no }}">
-                                    <input type="submit" value="Request">
-                                </form>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-		    </div>
+        </div>
 
         {% elif request.session.gamer_authority == 4 %}
             
