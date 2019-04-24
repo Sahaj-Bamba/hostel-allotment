@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 from accounts.models import User_details
 
+
 def home(request):
     return render(request, 'base/home.html', {})
 
@@ -24,3 +25,10 @@ def update(request):
     except ObjectDoesNotExist:
         request.session['gamer_type'] = 0
         request.session['gamer_authority'] = 0
+
+
+def contact(request):
+    update(request)
+    if request.method == 'POST':
+        pass
+    return render(request, 'base/contact.html', {})

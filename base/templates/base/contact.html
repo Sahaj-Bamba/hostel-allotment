@@ -1,0 +1,124 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block statics %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base/stylesheet/contact.css' %} " >
+    <script type="text/javascript" src="{% static 'base/javascript/contact.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block title2 %}
+    Contact
+{% endblock %}
+
+{% block quote %}
+    We are always ready to help
+{% endblock %}
+
+{% block content %}
+
+    <div id="map" style="border: solid 0px red;"></div>
+
+    <script>
+
+        // Maps
+        var marker;
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: {lat: 25.4979346, lng: 81.8714429}
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: {lat: 59.327, lng: 18.067}
+            });
+            marker.addListener('click', toggleBounce);
+        }
+
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
+    </script>
+
+    <script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEhU0EaFWjc3A0kMW-X5Lm_tgc1gaoHy0&callback=initMap">
+	</script>
+
+	<div class="white_back" > </div>
+
+    <div id="info" >
+        <div class="special">
+            Say Hello!
+        </div>
+		<div class="txtf">
+            We would love to hear about how we can improve your user experience .
+            <br><br>
+            Or if you have any technical difficulty, we would love to help .
+            <br><br>
+            +91 8810 5320 28 <br>
+            sahaj@mnnit.ac.in
+            <br>
+            <br>
+
+{#            <div class="footerc" >#}
+{#            <div class="socialc" >#}
+{#            <div class="tagc" >#}
+{#            <div class="image" style=" border: solid 0px red; background-image: url("{% static 'Project_Allotment_Portal/pictures/logos/fb.jpg' %}") >#}
+{#            </div>#}
+{#            <div class="image2" style=" border: solid 0px red; background-image: url('logos/fb2.jpg');">#}
+{#            </div>#}
+{#            </div>#}
+{#            <div class="tagc" >#}
+{#            <div class="image" style="background-image: url('logos/twitter.jpg'); " >#}
+{#            </div>#}
+{#            <div class="image2" style=" border: solid 0px red; background-image: url('logos/twitter2.jpg'); ">#}
+{#            </div>#}
+{#            </div>#}
+{#            <div class="tagc" >#}
+{#            <div class="image" style=" border: solid 0px red; background-image: url('logos/instagram.png'); " >#}
+{#            </div>#}
+{#            <div class="image2" style=" border: solid 0px red; background-image: url('logos/instagram2.png'); ">#}
+{#            </div>#}
+{#            </div>#}
+{#            <div class="tagc" >#}
+{#            <div class="image" style=" border: solid 0px red; background-image: url('logos/youtube.png'); " >#}
+{#            </div>#}
+{#            <div class="image2" style=" border: solid 0px red; background-image: url('logos/youtube2.png'); ">#}
+{#            </div>#}
+{#            </div>#}
+{#            </div>#}
+{#	    </div>#}
+	    </div>
+	        <span class="spil"><br></span>
+            <form method="post" action="{% url 'base:contact' %}">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Your Name" style="width: 48%; display: inline-block; height: 15%;" required />
+                <input name="email" type="email" placeholder="Your Email"  style="width: 48%; display: inline-block; height: 15%;" required/>
+                <br>
+                <br>
+                <input name="subject" type="text" placeholder="Subject" style="width: 96%; display: inline-block; height: 15%;"/>
+                <br>
+                <br>
+                <textarea placeholder="Message: *"  name="comment" rows="5" cols="40" required>
+                </textarea>
+                <br>
+                <br>
+                <input type="submit" value="Submit" />
+                <span class="spil"><br></span>
+	        </form>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block statics %}
+{#    <link rel="stylesheet" type="text/css" href="{% static 'base/stylesheet/not_found.css' %} " >#}
+{% endblock %}
+
+{% block title %}
+    Success
+{% endblock %}
+
+{% block title2 %}
+    Success
+{% endblock %}
+
+{% block quote %}
+    We have received your mail and will get back to you shortly
+{% endblock %}
+
+{% block content %}
+
+    <ul>
+        <li>
+            <h3 style="align-content: center;">
+                <a href="{% url 'base:home' %}"> Home Page </a>
+            </h3>
+        </li>
+    </ul>
+
+{% endblock %}

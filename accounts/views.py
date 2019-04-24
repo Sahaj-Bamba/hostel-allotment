@@ -25,7 +25,7 @@ def user_login(request):
             user = form.get_user()
             try:
                 temp = User_details.objects.get(user_user=user)
-                request.session['gamer_data_verified'] = temp.data_verified
+                request.session['gamer_type'] = temp.type
                 request.session['gamer_authority'] = temp.authority
             except ObjectDoesNotExist:
                 pass
