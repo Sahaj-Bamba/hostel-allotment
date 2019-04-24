@@ -26,6 +26,7 @@ class User_details(models.Model):
     user_contact = models.CharField(verbose_name="contact",blank=False,max_length=15)
     authority = models.IntegerField(verbose_name="authority", default=0)
     type = models.IntegerField(verbose_name="type", default=0)
+    year = models.IntegerField(verbose_name="year", default=0)
     user_user = models.OneToOneField(User, default=None, on_delete=models.CASCADE)
 
     # resume =

@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'base\base.html' %}
 {% load static %}
 
 {% block statics %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Project_Allotment_Portal/stylesheet/not_found.css' %} " >
+    <link rel="stylesheet" type="text/css" href="{% static 'base/stylesheet/not_found.css' %} " >
 {% endblock %}
 
 {% block title %}
@@ -22,7 +22,7 @@
     <ul>
         <li>
             <h3 style="align-content: center;">
-                <a href="{% url 'Project_Allotment_Portal:home' %}"> Home Page </a>
+                <a href="{% url 'base:home' %}"> Home Page </a>
             </h3>
         </li>
         <li>
