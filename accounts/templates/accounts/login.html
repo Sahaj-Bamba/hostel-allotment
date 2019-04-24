@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-
+{% extends 'base/base.html' %}
 {% load static  %}
 
 {% block title %}
@@ -10,9 +9,13 @@
     Login
 {% endblock %}
 
+{% block statics %}
+    <link rel="stylesheet" href="{% static 'accounts/stylesheet/login.css' %}">
+    <script type="text/javascript" src="{% static 'Project_Allotment_Portal/javascript/proff.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
-    <link rel="stylesheet" href="{% static 'Project_Allotment_Portal/stylesheet/login.css' %}">
     <form class="my-form" action="{% url 'accounts:login' %} " method="post">
         {% csrf_token %}
         {{ form.as_p}}

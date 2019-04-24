@@ -35,7 +35,8 @@
 
         <!-- Header -->
         <!--        Navbar      -->
-		<nav class="navbar navbar-fixed-top navbar-inverse">
+
+        <nav class="navbar navbar-fixed-top navbar-inverse">
 		    <div class="container-fluid">
 			    <div class="navbar-header">
 			        <!--  Button for collapse of main nav bar  -->
@@ -51,26 +52,20 @@
                     <ul class="nav navbar-nav">
                         {% if user.is_authenticated %}
                             <li ><a href="{% url 'accounts:profile' %}">Profile</a></li>
-                            <script>
-                                console.log("hell");
-                                console.log('{{ request.session.gamer_authority }}');
-                                console.log("hi");
-
-                            </script>
                             {% if request.session.gamer_authority < 5 %}
-                                <li ><a href="{% url 'accounts:team' %}">Team</a></li>
-                                <li ><a href="{% url 'accounts:requests' %}">Requests</a></li>
-                                <li ><a href="{% url 'Project_Allotment_Portal:notification' %}">Notification</a></li>
-                                <li ><a href="{% url 'accounts:proff' %}">Professor</a></li>
+{#                                <li ><a href="{% url 'accounts:team' %}">Team</a></li>#}
+{#                                <li ><a href="{% url 'accounts:requests' %}">Requests</a></li>#}
+{#                                <li ><a href="{% url 'Project_Allotment_Portal:notification' %}">Notification</a></li>#}
+{#                                <li ><a href="{% url 'accounts:proff' %}">Professor</a></li>#}
                             {% endif %}
                             {% if request.session.gamer_authority >= 5 %}
-                                <li ><a href="{% url 'accounts:validate' %}">Validate</a></li>
+{#                                <li ><a href="{% url 'accounts:validate' %}">Validate</a></li>#}
                             {% endif %}
 {#                            {% if request.session.gamer_authority == 7 %}#}
 {#                                <li ><a href="{% url 'accounts:authority_change' %}">Authority</a></li>#}
 {#                            {% endif %}#}
                         {% endif %}
-                        <li ><a href="{% url 'Project_Allotment_Portal:contact' %}">Contact</a></li>
+{#                        <li ><a href="{% url 'Project_Allotment_Portal:contact' %}">Contact</a></li>#}
                     </ul>
                     <ul class="nav navbar-nav navbar-right" >
                         {% if user.is_authenticated %}
@@ -89,7 +84,6 @@
 
                         {% else %}
 
-                            <li><a href="{% url 'accounts:signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                             <li><a href="{% url 'accounts:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
                         {% endif %}

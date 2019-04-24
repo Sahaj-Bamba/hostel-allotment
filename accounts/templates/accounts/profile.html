@@ -1,11 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
 {% load static %}
 
 {% block statics %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Project_Allotment_Portal/stylesheet/profile.css' %} " >
-    <script type="text/javascript" src="{% static 'Project_Allotment_Portal/javascript/profile.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/stylesheet/profile.css' %} " >
+    <script type="text/javascript" src="{% static 'accounts/javascript/profile.js' %}"></script>
 {% endblock %}
-
 
 {% block title %}
     Profile
@@ -16,42 +15,5 @@
 {% endblock %}
 
 {% block quote %}
-        {% if request.session.gamer_data_verified != 0 %}
             Better keep your fingers crossed
-        {% endif %}
-{% endblock %}
-
-{% block content %}
-
-        {% if request.session.gamer_data_verified == 1 %}
-            <h1>    Your Data is under verification process .   </h1>
-        {% endif %}
-        {% if request.session.gamer_data_verified > 1 %}
-            {% if request.session.gamer_authority < 5 %}
-                <h1>    Your Data Has been verified now you can move on to creating your team </h1>
-                <br>
-                <h1><a href="{% url 'accounts:team' %}">Team Creation</a></h1>
-            {% else %}
-                <h1>    Your Data Has been verified . </h1>
-                <br>
-            {% endif %}
-        {% endif %}
-        {% if request.session.gamer_data_verified == 0 %}
-            <form class="profile_details" action="{% url 'accounts:profile' %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="submit">
-            </form>
-        {% endif %}
-
-    <script>
-        console.log("{{ request.session.gamer_data_verified }}")
-    </script>
-
-
-
-
-
-
-
 {% endblock %}
