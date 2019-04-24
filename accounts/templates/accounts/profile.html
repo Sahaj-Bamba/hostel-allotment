@@ -15,5 +15,18 @@
 {% endblock %}
 
 {% block quote %}
-            Better keep your fingers crossed
+
+{% endblock %}
+
+{% block content %}
+
+    {% for a,b in details.items %}
+
+        <div class="item" >
+            <span class="name" >{{ a }}</span>
+            <span class="value" >{{ b }}</span>
+        </div>
+
+    {% endfor %}
+
 {% endblock %}

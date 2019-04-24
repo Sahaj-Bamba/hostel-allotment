@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from .models import User_details
 from base.views import update
 from django.core.exceptions import ObjectDoesNotExist
-
 
 # def user_signup(request):
 #     if request.method == 'POST':
@@ -45,18 +44,15 @@ def user_logout(request):
 
 def user_profile(request):
     update(request)
-    # if request.method == 'POST':
-    #     form = forms.ProfileDetails(request.POST, request.FILES)
-    #     if form.is_valid():
-    #         temp = form.save(commit=False)
-    #         temp.user_user = request.user
-    #         temp.data_verified = 1
-    #         temp.save()
-    #         return redirect('base:home')
-    # else:
-    #     form = forms.ProfileDetails()
 
-    return render(request, 'accounts/profile.html', {})
+    details = {}
+    x = User_details.objects.get(user_user=request.user)
+    details['Name'] = x.user_name
+    details['CPI'] = x.user_cpi
+    details['Gender'] = x.user_gender
+    details['Regestration Number'] = x.user_reg_no
+    details['Year'] = x.year
+    return render(request, 'accounts/profile.html', {'details': details})
 
 
 # def team(request):
