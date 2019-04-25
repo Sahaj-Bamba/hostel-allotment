@@ -18,7 +18,6 @@ from django.core.exceptions import ObjectDoesNotExist
 #     return render(request,'accounts/signup.html',{'form':form})
 
 
-@login_required(login_url="/login/")
 def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -65,7 +64,7 @@ def team(request):
 
 def create_team(request):
     if request.method == 'POST':
-                                    #   create the users team
+                                        #   create the users team
         pass
     return redirect('accounts:team')
 
